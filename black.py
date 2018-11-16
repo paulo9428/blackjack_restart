@@ -30,6 +30,6 @@ class Deck:
         recieved_card = [first_card, second_card]
         print(recieved_card)
     
-
+################################
 
 
