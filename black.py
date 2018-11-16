@@ -14,22 +14,22 @@ class Deck:
                 random.shuffle(deck)          
         print (deck)
         
-    def suffled_deck():
-        
-        deck = random.shuffle(deck)
+    def suffled_deck(deck):
+        card = random.shuffle(deck)
         
     shuffle_cards()
     recieved_card = []
 
 
+
     start = input("게임에 참석하시겠습니까? (Usage: Yes / No)\n")
     if start == "Yes":
-        suffled_deck()
-        first_card = deck.pop(1)
-        second_card = deck.pop(2)
+        suffled_deck(deck)
+        first_card = card.pop(1)
+        second_card = card.pop(2)
         recieved_card = [first_card, second_card]
         print(recieved_card)
     
-################################
+
 
 
