@@ -38,6 +38,7 @@ class Part:
             return #card.pop (새로 카드를 뽑는다.)
         elif a == "No":
             exit() #끝낸다.
+    
 
 
 class Player(Part):
