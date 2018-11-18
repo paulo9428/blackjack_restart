@@ -2,7 +2,7 @@ import random
 
 class Deck:
     
-    def shuffle_cards():
+    def make_deck():
         
         
         deck = []
@@ -14,6 +14,8 @@ class Deck:
                 res_number = number[n]
                 card = res_shape + res_number
                 deck.append(card)
+
+    def shuffle_deck():
                 
         random.shuffle(deck)
         
@@ -57,7 +59,7 @@ class Dealer(Part):
     bot_card = []
 
     def machine_hit():
-        if sum(my_card) > 17:
+        if sum(bot_card) > 17:
             #카드 안 받는다
         else:
             #카드 받는다
@@ -72,7 +74,7 @@ if start == "Yes":
     
     my_card = random.choice(shuffled_deck, k=2)    ##플레이어가 2장을 받는다
     
-    bot_card                                       ##딜러가 2장을 받는다 
+    bot_card                                        ##딜러가 2장을 받는다 
                                                    ##딜러의 카드 한장을 보여준다 
                                                      
 elif start == "No":
