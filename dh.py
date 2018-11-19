@@ -27,6 +27,13 @@
             int(a) = 11
         elif 11 + sum(my_card) > 21: #else
             int(a) = 1
+
+
+
+for i in range(1,3):
+    deck.pop(i)
+        
+            
              
 
 
