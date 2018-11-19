@@ -1,46 +1,53 @@
 import random
 
+shape = ["S","D","H","C"]
+number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+deck = []
 
+def make_deck():                            ## deck 을 만든다
     
-    deck= []
-    
-    def make_deck(self, shape, number,):                            ## deck 을 만든다
-        
-        self.shape = ["S","D","H","C"]
-        self.number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-        self.deck = []
-        
-        for i in range (0,4):
-            res_shape = self.shape[i]
-            for n in range (0, 13):
-                res_number = self.number[n]
+    for i in range (0,4):
+        res_shape = shape[i]
+        for n in range (0, 13):
+            res_number = number[n]
 
-                card = res_shape + res_number
-                
-                self.deck.append(card)
+            card = res_shape + res_number
+            
+            deck.append(card)
+    
         
-    def shuffle():                         ## deck 을 섞는다
+def shuffle():                         ## deck 을 섞는다
         
-                
+    make_deck()
+    
+    random.shuffle(deck)           
         
     
         
 
      
-    def fail():                   ## 가진 카드의 합이 21이 넘으면 패한다
-        if sum(my_card) > 21:
-            return sum(my_card)
-            time.sleep(5) 
-            print(sum(my_card), "다음 기회에")
+def fail():                   ## 가진 카드의 합이 21이 넘으면 패한다
+    
+    if my_list.sum() > 21:
 
+        print("You Lose!!!")
 
-    def sum():                       ##가진 카드 문자열에서 정수를 추출하여 합을 낸다        
 
     
+    
+def match():                            ## sum 을 비교하여 승부를 낸다
 
+    if my_list.sum() - bot_list.sum() > 0:
 
-    def                             ## sum 을 비교하여 승부를 낸다
+        print("You win!!")
 
+    elif my_list.sum() - bot_list.sum() == 0:
+
+        print("Draw!!")
+
+    else:
+
+        print("You lose~")
 
 
 
@@ -50,60 +57,26 @@ import random
 
     
     def hit(self):                             ## hit 하는거
-        return my_card.append(deck.pop(1))
-        print(my_card)
-
-    cmd = input("한 장 더 받으시겠습니까? Yes : Yes, No : enter >>")
-    
-    if cmd == "Yes":
-        my_card.append(deck.pop(2))
-        print(my_card)
-
-    if cmd == "No":
-        pass
-
-    
-    
-    
-    
-    def a_count(self):                   ## A의 숫자를 정한다                   
-    if 11 + sum(my_card) < 21:
-        int(a) = 11
-    elif 11 + sum(my_card) > 21: #else
-        int(a) = 1
-    
-    
-
-    
-class Player(Part):
-
-    my_card = []
-
-    def __init__(self):
         
-        self.my_card = my_card
+        my_card.append(deck.pop())
 
-    def question(self):
-        a = input("카드를 뽑으시겠습니까? (Usage: Yes / No / Stand\n")
-        if a == "Yes":
-            return                  #card.pop (새로 카드를 뽑는다.)
-        elif a == "No":
-            exit()                  #끝낸다.
-
-class Dealer(Part):
-
-    bot_card = []
-
-    def __init__(self):
-        
-        self.bot_card = bot_card    
     
     
-    def machine_hit(self):
-        if sum(bot_card) > 17:
-            #카드 안 받는다
+    
+    
+    
+
+    def machine_hit(self):                  ## 17 이상일때까지 받는다
+        if bot_card.sum() > 17
+
+            
+
         else:
-            #카드 받는다
+
+
+    
+
+    
 
 #---------------Main Flow-------------------
 
@@ -144,3 +117,8 @@ while True:
         break
 
 
+    
+    
+    
+
+    

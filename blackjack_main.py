@@ -1,10 +1,10 @@
 import random
 
-class Deck:
+class Deck:          
     
-    deck = []
+    deck = []                           
     
-    def make_deck():                            ## deck 을 만든다
+    def make_deck():                               ## deck 을 만든다
         
         shape = ["S","D","H","C"]
         number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
@@ -107,41 +107,11 @@ class Dealer(Part):
 
 #---------------Main Flow-------------------
 
+invite = input('게임에 참석하시겠습니까? (Yes / No)')
 
-
-
-start = input("게임에 참석하시겠습니까? (Usage: Yes / No)\n")        ## 첫째 턴
-
-if start == "Yes":
+if invite == 'Yes':
     
-    my_card =                                      ##플레이어가 2장을 받는다
-    
-    bot_card =                                     ##딜러가 2장을 받는다 
-    
-    print()                                        ##딜러의 카드 한장을 보여준다 
-                                                     
-elif start == "No":
-    
-    print("다음에 봐요!")
-    
-    exit()
 
-while True:
-
-    get_card = input("카드를 받으시겠습니까? (Usage: Yes / No)\n ")
-
-    if get_card == "Yes":
-
-                                    ## 플레이어가 한장 받는다
-                                    ## 받은 카드를 보여준다            
-        continue
-    
-    elif get_card == "No":
-                                    
-                                    ## 딜러가 17이상일때가지 받는다
-                                    ## sum 을 비교하여 승패를 프린트한다
-        
-        break
 
 
 
