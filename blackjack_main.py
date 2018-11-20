@@ -20,7 +20,7 @@ class Deck:
         
     def shuffle():                         ## deck 을 섞는다
         
-                
+        random.shuffle(deck)     
         
     
         
