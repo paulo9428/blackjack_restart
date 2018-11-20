@@ -1,5 +1,6 @@
 class Deck:                                       ##instance 없이 쓰는 static method로 Deck.make_deck()
 
+   
     deck = []                           
     
     def make_deck():                               ## deck 을 만든다
@@ -56,11 +57,11 @@ class Dealer(Participant):
     
     def machine_hit(self):
         
-        while self.received_card.sum() =< 17:
+        while self.sum_result =< 17:
             
             self.received_card.append(deck.pop())
 
-            if self.received_card.sum() > 17:
+            if self.sum_result > 17:
 
                 break
 
@@ -69,52 +70,53 @@ class Dealer(Participant):
 class Sum:                                          ## Match 클래스에 상속?????
 
     
-    sum_result = 0   
-
     def sum(self):
+
+        self.sum_result = 0
         
         for i in self.received_card:
             
-            sum_result += int(i[1])
+            self.sum_result += int(i[1])
+       
+
         
 
-    def a_decision():
+    def a_decision(self):
         
-        if i[1] == 'A' and sum_result + 11 > 21:
+        if i[1] == 'A' and self.sum_result + 11 > 21:
+            
             a = i[1]
             a = 1
-            d = a + sum_result
-        elif i[1] == 'A' and sum_result + 11 < 21:
+
+            sum_result += a
+            
+        elif i[1] == 'A' and self.sum_result + 11 < 21:
+            
             a = i[1]
             a = 11
-            d = a + sum_result  
+
+            sum_result += a
              
              
-    def jqk_decision():
-        a = 0
+             
+    def jqk_decision(self):
+        
         if i[1] == 'J' or i[1] == 'Q' or i[1] == 'K':
+            
             a = i[1]
             a = 10
+
+            self.sum_result += a
         
 
             
 
             
-                
-            
-
-                                                   
-            
-            
-            
-            
-    
-
 class Match(Sum):                     ## Match 클래스가 Sum 클래스를 상속
     
     def fail(self):                   ## 가진 카드의 합이 21이 넘으면 패한다
     
-    if self.received_card.sum() > 21:
+    if self.sum_result > 21:
 
         print(self.name, "Lose!!!")
 
@@ -122,11 +124,11 @@ class Match(Sum):                     ## Match 클래스가 Sum 클래스를 상
 
     def match():                            ## sum 을 비교하여 승부를 낸다
 
-        if player.received_card.sum() - dealer.received_card.sum() > 0:
+        if player.sum_result - dealer.sum_result > 0:
 
             print("You win!!")
 
-        elif player.received_card.sum() - dealer.received_card.sum() == 0:
+        elif player.sum_result - dealer.sum_result == 0:
 
             print("Draw!!")
 
@@ -175,7 +177,7 @@ while True:                                                ## 둘째 턴 ~ 종�
 
     if gesture == 'Yes':
 
-        player.received_card.append(deck.pop())
+        player.hit()
         
         print("P>>>", player.received_card)
         print("D>>>", dealer.received_card[0])
@@ -198,5 +200,15 @@ while True:                                                ## 둘째 턴 ~ 종�
                 
              
                 
+                
+            
+
+                                                   
+            
+            
+            
+            
+    
+
 
 
