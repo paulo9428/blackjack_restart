@@ -1,3 +1,5 @@
+import random
+
 class Deck:                                       ##instance 없이 쓰는 static method로 Deck.make_deck()
 
     deck = []                           
@@ -5,7 +7,7 @@ class Deck:                                       ##instance 없이 쓰는 stati
     def make_deck():                               ## deck 을 만든다
         
         shape = ["S","D","H","C"]
-        number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+        number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"] "J" = "10"
         
         for i in range (0,4):
             res_shape = shape[i]
@@ -17,8 +19,6 @@ class Deck:                                       ##instance 없이 쓰는 stati
                 deck.append(card)
         
     def shuffle():                         ## deck 을 섞는다
-
-    
         random.shuffle(deck)    
 
 class Sum:
@@ -34,28 +34,31 @@ class Sum:
 
     def a_decision():
 
-        if i[1:2] == 'A' and sum_result > 21:               ## A의 숫자를 정한다                   
-            
-            int(i[1:2]) = 1
+        'A' = 11
 
-        elif i[1:2] == 'A' and sum_result =< 21:
+        if i[1] == 'A' and sum_result + A > 21:               ## A의 숫자를 정한다                   
             
-            int(i[1:2]) = 10
+            int(i[1]) = 1
+
+        elif i[1] == 'A' and sum_result =< 21:
+            
+            int(i[1]) = 11
             
     def jqk_decision():
 
-        if i[1:2] == 'J', 'Q', 'K':
+        if i[1] == 'J' or i[1] == 'Q' or i[1] == 'K':
             
-            int(i[1:2]) = 10
+            int(i[1]) = 10
     
 
 class Match:
     
     def fail(self):                   ## 가진 카드의 합이 21이 넘으면 패한다
-    
-    if self.received_card.sum() > 21:
-
-        print("You Lose!!!")
+        if self.received_card.sum() > 21:
+            print(self.name "==>>   Lose!!!")
+            continue
+        
+        
 
 
 
@@ -80,8 +83,13 @@ class Match:
 
 
 class Part:
-
     received_card = []
+    def pop_card ():
+        for i in range(1,3):
+            card = deck.pop(i)
+            my_card.append(card)
+
+    
 
     def __init__(self):
         
@@ -97,12 +105,15 @@ class Part:
 
 
 class Player(Part):
-
+    def __init__(self):
+        self.name = "player"
    
 
     
 
 class Dealer(Part):
+    def __init__(self)
+        self.name = "dealer"
 
     
     
@@ -151,7 +162,7 @@ while True:
     
     gesture = input('카드를 한장 받으시겠습니까? (Yes / No)/n')
 
-    if gesture == 'Yes'
+    if gesture == 'Yes':
 
         player.received_card.append(deck.pop())
         
@@ -159,12 +170,15 @@ while True:
 
         continue
     
-    elif gesture == 'No'
+    elif gesture == 'No':
 
         dealer.machine_hit()
         
         print("P>>>", player.received_card)
         print("D>>>", dealer.received_card)
+
+        break
+
 
 
         
