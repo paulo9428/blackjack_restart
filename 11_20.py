@@ -2,12 +2,14 @@ import random
 
 class Deck:                                       ##instance 없이 쓰는 static method로 Deck.make_deck()
     
+ 
+    deck = []
 
     def __init__(self):
         print ("good")
     
     def make_deck(self):                               ## deck 을 만든다
-        deck = []
+        
         shape = ["S","D","H","C"]
         number = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
         for i in range (0,4):
@@ -17,24 +19,29 @@ class Deck:                                       ##instance 없이 쓰는 stati
 
                 card = res_shape + res_number
                 
-                deck.append(card)
-        return deck
+                self.deck.append(card)
+        print(self.deck)
         
         
     def shuffle(self):
-        new = self.make_deck()
-        random.shuffle(new)
-        return new
-
+        random.shuffle(self.deck)
+        print(self.deck)
     
     def pop_card(self):
-        new1 = self.shuffle()
-        received_card = []
-        for i in range(1,3):
-            card = new1.pop(i)
-            received_card.append(card)
-        print(received_card)
         
+        received_card = []
+
+        for i in range(1,3):
+        
+            received_card.append(self.deck.pop(i))
+        
+        print(received_card)
+
+    def hit(self):
+
+        c = self.received_card.append(self.deck.pop(0))
+
+        print(c)
 
 
 class Participant:
