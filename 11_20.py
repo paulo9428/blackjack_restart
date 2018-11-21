@@ -5,6 +5,8 @@ class Deck:                                       ##instance 없이 쓰는 stati
  
     deck = []
 
+    received_card = []
+
     def __init__(self):
         print ("good")
     
@@ -28,21 +30,18 @@ class Deck:                                       ##instance 없이 쓰는 stati
         print(self.deck)
     
     def pop_card(self):
+        # received_card = [] 여기 있었더니 구동 안 됨.....
+        for i in range(2):
         
-        received_card = []
-
-        for i in range(1,3):
-        
-            received_card.append(self.deck.pop(i))
-        
-        print(received_card)
+            self.received_card.append(self.deck.pop(0))
+       
+        print(self.received_card)
 
     def hit(self):
 
-        c = self.received_card.append(self.deck.pop(0))
+        self.received_card.append(self.deck.pop(0))        # [list].append("aa") append함수는 return값 없음 -> print(list)해야 함. [list].sort도 마찬가지
 
-        print(c)
-
+        print(self.received_card)
 
 class Participant:
 
