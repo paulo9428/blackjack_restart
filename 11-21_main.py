@@ -1,3 +1,6 @@
+import random
+
+
 class Deck:                                       
     
 
@@ -48,14 +51,14 @@ class Participant:
         
         for i in range(0,2):
             
-            card = self.deck.pop(i)
+            card = dk.deck.pop(i)        ###밑줄의 self 와 다르다?? 플레이어와 딜러 덱을 따로써야하나?
             
             self.received_card.append(card)
         
         
     def hit(self):                             ## hit 하는거
         
-        card = self.deck.pop()
+        card = dk.deck.pop()
 
         self.received_card.append(card)
 
@@ -90,57 +93,125 @@ class Dealer(Participant):
     
     def machine_hit(self):
 
+        while self.sum_result < 17:
+            self.hit()
+
+            
+
+
 
 
 ##----------------------------------------------------------
 
 class Sum:
      
-    def __init__(self):
+    def sum(self):
+
+        self.sum_result = 0 
 
         for i in self.received_card:                                       #### j,q,k 결정
             
             if i[1] == 'J' or 'Q' or 'K':
 
-                a = i[1]
-                a = 10 
+                
+                self.sum_result += 10
 
         
-            elif i[1] == 'A' and sum_result + 11 > 21:                            ### a 결정
+            elif i[1] == 'A' and self.sum_result + 11 > 21:                            ### a 결정
                 
-                a = i[1]
-                a = 1
                 
-                sum_result += a
+                
+                self.sum_result += 1
+
             
-            elif i[1] == 'A' and sum_result + 11 < 21:
+            elif i[1] == 'A' and self.sum_result + 11 < 21:
                 
                 
-                sum_result += a 
+                self.sum_result += 11
+
+            else: 
+                self.sum_result += int(i[1])
+
 
         
         
                 
             
-    def calc_score(self):
+    
        
-        
-       
-        
-        num.append(int(i[1]))
-        
-        num = []                                                            #### 환산한 점수를 num = [] 에 담아준다
-        
-        return sum(num)
-        
-            
-        
-            
-               
-            
-        
+class Match(Sum):
 
     
+    def match():                            ## sum 을 비교하여 승부를 낸다
+
+        if player.sum_result - dealer.sum_result> 0:
+
+            print("You win!!")
+
+        elif player.sum_result - dealer.sum_result == 0:
+
+            print("Draw!!")
+
+        else:
+
+            print("You lose~")
+
+        
+       
+##----------------------main flow----------------------------------       
+            
+p = Player(), Match()
+d = Player(), Match()
+dk = Deck()    
+        
+            
+
+
+dk.make_deck()
+dk.shuffle()
+
+###print(dk.deck)
+
+d.double_hit()
+print(d.received_card[0])
+
+p.double_hit()
+print(p.receiver_card)
+
+while True:
+
+    choice = input("카드를 한장 더 받으시겠습니까? yes / no")
+
+    if choice == 'yes':
+        
+        p.hit()
+        print(p.received_card)
+
+        d.hit()
+        print(d.received_card[0])
+
+    elif choice == 'no':
+
+        d.sum()
+        d.machine_hit()
+
+        p.sum()
+        
+
+        Match.match()
+
+        break
+
+    else:
+        continue
+
+
+
+
+
+
+
+
     
         
              
@@ -150,23 +221,6 @@ class Sum:
 
     
 
-class Match(Sum):
-
-    
-    def match():                            ## sum 을 비교하여 승부를 낸다
-
-        if player.calc_score - dealer.calc_score > 0:
-
-            print("You win!!")
-
-        elif player.calc_score - dealer.calc_score == 0:
-
-            print("Draw!!")
-
-        else:
-
-            print("You lose~")
-
 
 
 
@@ -200,29 +254,5 @@ class Match(Sum):
 
 
 
-
-while True :
-
-a = Deck()
-a.make_deck(); a.shuffle()                                                                                           ### deck을 섞는다
-
-##print(self.deck)
-
-d = Dealer()
-p = Player()
-
-
-
-                                                                                           ## 딜러가 1장을 두번 받는다
-
-                                                                                            ## 플레이어가 1장을 두번 받는다
-
-                                                                                            ## 딜러의 첫번째 한장과 플레이어의 카드 전체를 보여준다
-
-                                                                                            ##  카드를 한장 더 받으시겠습니까??
-
-                                                                                            ## 예 -> 2번째줄            
-
-                                                                                            ## 아니요 -> 딜러 17 이상일때까지 받는다 -> 승부를 낸다
 
 
