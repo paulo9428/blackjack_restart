@@ -185,7 +185,7 @@ while True:                                                ## 둘째 턴 ~ 종�
         continue
     
     elif gesture == 'No':
-
+        
         dealer.machine_hit()
         
         print("P>>>", player.received_card)
