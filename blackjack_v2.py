@@ -27,10 +27,10 @@ class Deck:
         
         
         
-        
     def shuffle(self):                                 ## deck 을 섞는다
 
         random.shuffle(self.deck)
+        
 
 
 ###########---------------------------------------------------------------
@@ -155,11 +155,15 @@ dk.shuffle()
 
 ###print(dk.deck)
 
-d.double_hit()                                                          ### 시작하면 2장씩 준다
-print("D>>>", d.received_card[0])
 
-p.double_hit()
+
+p.double_hit()                                                  ### 시작하면 2장씩 준다
 print("P>>>", p.received_card)
+
+d.double_hit() 
+print("D>>>", d.received_card[0])
+                                                         
+
 
 
 
@@ -171,11 +175,11 @@ while True:
     if choice == "yes":                                                 ## 각자 한장씩 hit 하는 것
 
         
-        d.hit()
-        print("D >>>", d.received_card[0])
-
         p.hit()
-        print("P >>>", p.received_card)
+        print("P>>>", p.received_card)
+
+        
+        print("D>>>", d.received_card[0])
 
         continue
         
@@ -186,6 +190,10 @@ while True:
         
         
         d.sum()
+        
+        dk.make_deck()
+        dk.shuffle()
+        
         d.machine_hit()                                             ## 딜러가 sum이 17이상 될때가지 hit 한다
 
         p.sum()
@@ -199,17 +207,19 @@ while True:
         print("D SCORE>>>", d.sum_result)
 
         
-        if p.sum_result > 21:
+        if p.sum_result > 21 and d.sum_result > 21:
 
-            print("Player lose~")  
-        
+            print("Play again!")
+ 
         elif d.sum_result > 21:
 
             print("Player win~")
 
-            
+        elif p.sum_result > 21:
 
-
+            print("Player lose~")  
+        
+        
         
         elif p.sum_result - d.sum_result> 0:
 
@@ -229,6 +239,11 @@ while True:
 
         ### 21 넘으면 패하는 거랑
         ### 21 되면 블랙잭되는 거 
+        
+            
+
+
+        
         
         
         
