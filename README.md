@@ -1,12 +1,12 @@
 ■ Blackjack Child
 ====================
-#We made blackjack game with python language!
+We made blackjack game with python language!
 ---------------------------------------------
-#Collaborators (In alphabetical order)
--------------
-## Dohye Kim
-## Hyunouk Lee
-## Junsoo Lee
+Collaborators (In alphabetical order)
+------------------
+#### Dohye Kim
+#### Hyunouk Lee
+#### Junsoo Lee
 Features
 -------------
 * There are two playes: Dealer(Computer), Player
