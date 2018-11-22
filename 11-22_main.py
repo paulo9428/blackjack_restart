@@ -1,4 +1,4 @@
-mport random
+import random
 
 
 class Deck:                                       
@@ -62,7 +62,7 @@ class Participant:
 
         self.sum_result = 0 
 
-        for i in self.received_card:                              ##self.received_card 가 필요함                                 
+        for i in self.receive_card:                              ##self.received_card 가 필요함                                 
             
             if i[1] == 'J' or 'Q' or 'K':                                           #### j,q,k 결정
 
@@ -85,13 +85,17 @@ class Participant:
             else: 
                 self.sum_result += int(i[1])
 
+    
+    
     def fail(self):                         ## 가진 카드의 합이 21이 넘으면 패한다
         
         if self.sum_result > 21:
 
-            print(self.name, "Lose!!!")
+            print(self.name, "Lose!!!")       ##self.name 이 클라스내에 필요함
 
- 
+
+
+    
     
     
     
@@ -106,7 +110,7 @@ class Player(Participant):
 
         received_card = []
         
-        self.received_card = received_card
+        Participant.received_card = received_card
 
         self.name = 'player'
 
@@ -124,6 +128,12 @@ class Dealer(Participant):
         self.name = 'dealer'
 
     
+    def machine_hit(self):
+        
+        while self.sum_result < 17:
+            self.hit()
+        
+    
     
     
             
@@ -133,43 +143,13 @@ class Dealer(Participant):
 
 ##----------------------------------------------------------
 
-class Sum():
-     
-    def sum(self):
 
-        self.sum_result = 0 
-
-        for i in self.received_card:                              ##self.received_card 가 필요함                                 
-            
-            if i[1] == 'J' or 'Q' or 'K':                                           #### j,q,k 결정
-
-                
-                self.sum_result += 10
-
-        
-            elif i[1] == 'A' and self.sum_result + 11 > 21:                            ### a 결정
-                
-                
-                
-                self.sum_result += 1
-
-            
-            elif i[1] == 'A' and self.sum_result + 11 < 21:
-                
-                
-                self.sum_result += 11
-
-            else: 
-                self.sum_result += int(i[1])
-
-
-        
         
                 
             
     
        
-class Match(Sum):
+class Match():
 
     
     def match():                            ## sum 을 비교하여 승부를 낸다
@@ -186,12 +166,14 @@ class Match(Sum):
 
             print("You lose~")
 
-    def fail(self):                         ## 가진 카드의 합이 21이 넘으면 패한다
-        
-        if self.sum_result > 21:
-
-            print(self.name, "Lose!!!")
-
+    
+    
+    
+    
+    
+    
+    
+    
     
         
 
@@ -200,8 +182,6 @@ class Match(Sum):
 ##----------------------main flow----------------------------------       
             
 p = Player()
-
-
 d = Dealer()
 
 
@@ -221,14 +201,29 @@ print("P >>>", p.received_card)
 
 
 
-
 while True:                                                                 ## sum_result =< 21 조건에서
     
-    
+    p.fail()
+    d.fail()
 
     choice = input("카드를 한장 더 받으시겠습니까? yes / no")
 
-    if choice == 'yes':
+    if choice == 'no':
+
+        d.sum()
+        d.machine_hit()
+
+        p.sum
+        d.sum
+
+        Match.match()
+
+        break
+        
+
+    
+    
+    elif choice == 'yes':
         
         
         d.hit()
@@ -237,40 +232,37 @@ while True:                                                                 ## s
         p.hit()
         print("P >>>", p.received_card)
 
-##-------------------------------------------------------------------
-    elif choice == 'no':
+        continue
 
         
 
-        ds.sum()
-        d.machine_hit()
-
-        print("D >>>", d.received_card[0])
-        print("P >>>", p.received_card)
-
-        
-        d.sum()
-        p.sum()
-
-        print("D >>>", d.sum_result)
-        print("P >>>", p.sum_result)
-
-
-
-        Match.match()
-
-        break
-
-    #elif ps.sum_result =< 21 or ds.sum_result =< 21 
-
-        
 
     
 
-    else:
-        continue
+        
+        
+        
+    
+
+         
+
+
+
         
 
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+

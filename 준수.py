@@ -32,6 +32,8 @@ class Deck:
 
         random.shuffle(self.deck)
 
+       
+
 
 ###########---------------------------------------------------------------
 
@@ -49,6 +51,7 @@ class Participant:
     def double_hit(self):
         
         
+
         for i in range(0,2):
             
             card = dk.deck.pop(i)        ###밑줄의 self 와 다르다?? 플레이어와 딜러 덱을 따로써야하나?
@@ -58,7 +61,7 @@ class Participant:
         
     def hit(self):                             ## hit 하는거
         
-        card = dk.deck.pop()
+        card = de.deck.pop()
 
         self.received_card.append(card)
 
@@ -160,8 +163,10 @@ class Match(Sum):
        
 ##----------------------main flow----------------------------------       
             
-p = Player(), Match()
-d = Player(), Match()
+p = Player()
+  
+d = Dealer()
+
 dk = Deck()    
         
             
@@ -170,9 +175,9 @@ dk = Deck()
 dk.make_deck()
 dk.shuffle()
 
-###print(dk.deck)
+#### print(dk.deck)
 
-d.double_hit()
+d.double_hit()         
 print(d.received_card[0])
 
 p.double_hit()
@@ -204,55 +209,3 @@ while True:
 
     else:
         continue
-
-
-
-
-
-
-
-
-    
-        
-             
-    
-    
-
-
-    
-
-
-
-
-
-        
-        
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
