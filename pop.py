@@ -1,7 +1,10 @@
-lst = [3, 5, 2, 8]
+lst = ['A', 'C', 2, 8]
+d = []
 
-lst.index('A')
+if 'C' in lst :
+    
+    d.append(3)
 
 
-self.num.append(1)
-lst.index()
+
+print (d)
