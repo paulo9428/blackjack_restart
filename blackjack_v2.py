@@ -28,7 +28,7 @@ class Deck:
         
         
         
-    def shuffle(self):
+    def shuffle(self):                                 ## deck 을 섞는다
 
         random.shuffle(self.deck)
 
@@ -54,7 +54,7 @@ class Sum:
                 self.sum_result += 10
 
         
-            elif i[1] == 'A' and self.sum_result + 11 > 21:                            ### a 결정
+            elif i[1] == 'A' and self.sum_result + 11 > 21:                    ### a 결정
                 
                 self.sum_result += 1
 
@@ -65,7 +65,7 @@ class Sum:
                 self.sum_result += 11
 
             else: 
-                self.sum_result += int(i[1:])
+                self.sum_result += int(i[1:])                                   ## 문자열 숫자를 정수화해서 더해준다
 
 
 
@@ -80,7 +80,7 @@ class Participant(Sum):
         self.received_card = received_card
 
     
-    def double_hit(self):
+    def double_hit(self):                   ##2장 hit 하는 것
         
         
         for i in range(0,2):
@@ -90,24 +90,16 @@ class Participant(Sum):
             self.received_card.append(card)
         
         
-    def hit(self):                             ## hit 하는거
+    def hit(self):                             ## 한장 hit 하는거
         
         card = dk.deck.pop()
 
         self.received_card.append(card)
 
-    def fail(self):
-
-        if self.sum_result > 21:
-            
-            print(self.name, "Lose!!!")
-
     
     
     
-
-
-
+    
 class Player(Participant):
 
     def __init__(self):
@@ -145,16 +137,10 @@ class Dealer(Participant):
 
 
 
-    
-        
-                
-            
-    
-       
 
-        
-        
-       
+
+
+    
 ##----------------------main flow----------------------------------       
             
 p = Player()
@@ -169,7 +155,7 @@ dk.shuffle()
 
 ###print(dk.deck)
 
-d.double_hit()
+d.double_hit()                                                          ### 시작하면 2장씩 준다
 print("D>>>", d.received_card[0])
 
 p.double_hit()
@@ -180,9 +166,9 @@ print("P>>>", p.received_card)
 while True:
 
     
-    choice = input("카드를 한장 더 받으시겠습니까? yes / no")
+    choice = input("카드를 한장 더 받으시겠습니까? yes / no\n")
 
-    if choice == "yes":
+    if choice == "yes":                                                 ## 각자 한장씩 hit 하는 것
 
         
         d.hit()
@@ -200,7 +186,7 @@ while True:
         
         
         d.sum()
-        d.machine_hit()
+        d.machine_hit()                                             ## 딜러가 sum이 17이상 될때가지 hit 한다
 
         p.sum()
         d.sum()
@@ -213,7 +199,19 @@ while True:
         print("D SCORE>>>", d.sum_result)
 
         
-        if p.sum_result - d.sum_result> 0:
+        if p.sum_result > 21:
+
+            print("Player lose~")  
+        
+        elif d.sum_result > 21:
+
+            print("Player win~")
+
+            
+
+
+        
+        elif p.sum_result - d.sum_result> 0:
 
             print("You win!!")
 
@@ -234,6 +232,15 @@ while True:
         
         
         
+        
+                
+            
+    
+       
+
+        
+        
+       
 
     
 
