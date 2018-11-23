@@ -47,7 +47,7 @@ class Deck:                                       ##instance 없이 쓰는 stati
         # print (score)
         return score
 
-    
+   
 
 
 class Player(Deck):
